@@ -1,0 +1,14 @@
+Package: EpDB2UG
+Title: Utility to convert global gff from eupathdb to local annotation file
+Version: 0.0.0.9000
+Authors@R: person('Ta.', 'Su.', email='ex@example.com', role=c('aut', 'cre'))
+Description: Utility to convert global gff from eupathdb to local annotation
+    file.
+Depends:
+    R (>= 3.2.0)
+License: MIT
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/Tasu/EpDB2UG
+BugReports: https://github.com/Tasu/EpDB2UG/issues
+RoxygenNote: 5.0.1
