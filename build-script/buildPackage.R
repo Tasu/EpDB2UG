@@ -45,3 +45,5 @@ library(EpDB2UG)#this should give you error message 'there is no package called.
 
 #test installing from github
 devtools::install_github("Tasu/EpDB2UG")
+library(EpDB2UG)
+help(package = EpDB2UG)
