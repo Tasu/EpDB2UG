@@ -42,3 +42,6 @@ library(EpDB2UG)#this should give you error message 'there is no package called.
 #git commit -m "first commit"
 #git remote add origin https://github.com/Tasu/EpDB2UG.git
 #git push -u origin master
+
+#test installing from github
+devtools::install_github("Tasu/EpDB2UG")
