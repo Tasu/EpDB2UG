@@ -1,11 +1,10 @@
 Package: EpDB2UG
-Title: Utility to convert global gff from eupathdb to local annotation file
+Title: Utilities to work with EupathDB and UGENE
 Version: 0.0.0.9000
 Authors@R: person('Ta.', 'Su.', email='ex@example.com', role=c('aut', 'cre'))
-Description: Utility to convert global gff from eupathdb to local annotation
-    file. https://github.com/Tasu/EpDB2UG/master/README.md
+Description: Utilities to work with EupathDB and UGENE. Functions include converting GFF+sequence format from eupathdb to fasta and gff anotation file for UGENE. see https://github.com/Tasu/EpDB2UG/master/README.md
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.1.1)
 License: MIT
 Encoding: UTF-8
 LazyData: true
