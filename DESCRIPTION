@@ -5,7 +5,7 @@ Authors@R: person('Ta.', 'Su.', email='ex@example.com', role=c('aut', 'cre'))
 Description: Utility to convert global gff from eupathdb to local annotation
     file.
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.1.1)
 License: MIT
 Encoding: UTF-8
 LazyData: true
