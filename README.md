@@ -18,6 +18,7 @@ devtools::install_github("klutometis/roxygen")
   3.4. save the locus in file <-- this file can be used as an input file.
 
 #usage
+please use script in build-script/toxodb2ugene.R
 #modified 052716Tasu
 #modified 071816Tasu
 
