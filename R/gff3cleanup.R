@@ -42,7 +42,7 @@ parsegff3WithSeq<-function(inF,outGFF,outFASTA){
   fastaHeader<-"^>"
   gffTmp<-c()
   fastaTmp<-c()
-  
+
   #read file containing multi part(header,gff,fasta) object
   multi<-readLines(inF)
 
@@ -98,13 +98,13 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
   endCol<-5    #column 5 in GFF is end position of the features
   #read gff file
   gff3 <- readLines(toxoDBGFF)#if you care about the memory size, just read line by line and quit if not starts with #.
-  
+
   #get position in the chromosome
   regionline <- gff3[grepl(pattern = "^##sequence-region ", gff3)]
   #*:startNumber..endNumber
   startPosition <- as.numeric(
   unlist(
-      strsplit(split = "..", fixed=T, 
+      strsplit(split = "..", fixed=T,
                x = unlist(strsplit(x = regionline, split = ":", fixed = T)
                )[2]
       )
@@ -120,4 +120,26 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
   gff3out[,endCol]<-ends
   #write GFF in new GFF file.
   write.table(gff3out,file = UGENEGFF,sep = "\t", quote = F, row.names = F, col.names = F)
+}
+
+
+#' toxodb2ugene
+#'
+#' utility for this package functions (not recommended.)
+#' please refer--> https://github.com/Tasu/EpDB2UG/blob/master/build-script/toxodb2ugene.R
+#' @param toxoDBGFF
+#' @export ${toxoDBGFF}.fasta and ${toxoDBGFF}.ugene.gff in the same directory of toxoDBGFF file
+#' @examples
+#' toxodb2ugene(toxoDBGFF)
+toxodb2ugene<-function(toxoDBGFF){
+  in_f<-toxoDBGFF
+  outFASTAUGENE<-paste(in_f,".fasta",sep="")
+  outGFFUGENE<-paste(in_f,".ugene.gff",sep="")
+  tempDir<-"./temp"
+  outGFFtemp<-paste(tempDir,runif(1),sep="")
+  parsegff3WithSeq(inF=in_f,outGFF=outGFFtemp,outFASTA=outFASTAUGENE)
+  #edit base position
+  modifyGFF4UGENE(toxoDBGFF=outGFFtemp, UGENEGFF=outGFFUGENE)
+  #delete temp file
+  file.remove(outGFFtemp)
 }

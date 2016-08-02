@@ -3,10 +3,13 @@
 
 #read requirement
 library(EpDB2UG)
+####not recommended###
+toxo2ugene("~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/TGME49_chrVIII_5677701_5687700.gff3")
+#####
 
 ######please change these 4 parameter for your settings.###########
 #1.   input gff file name
-in_f<-"~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/TGME49_chrVIIa_2403098_2413097.gff3"
+in_f<-"~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/TGME49_chrVIII_5677701_5687700.gff3"
 
 ###############change if needed. DEFAULT<-current directory+temp#####
 #2.   fasta file name you will use for ugene
