@@ -127,8 +127,9 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
 #'
 #' utility for this package functions (not recommended.)
 #' please refer--> https://github.com/Tasu/EpDB2UG/blob/master/build-script/toxodb2ugene.R
+#' output file will make in the same directory as toxoDBGFF file.
 #' @param toxoDBGFF
-#' @export ${toxoDBGFF}.fasta and ${toxoDBGFF}.ugene.gff in the same directory of toxoDBGFF file
+#' @export
 #' @examples
 #' toxodb2ugene(toxoDBGFF)
 toxodb2ugene<-function(toxoDBGFF){

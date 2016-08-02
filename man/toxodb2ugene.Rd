@@ -9,6 +9,7 @@ toxodb2ugene(toxoDBGFF)
 \description{
 utility for this package functions (not recommended.)
 please refer--> https://github.com/Tasu/EpDB2UG/blob/master/build-script/toxodb2ugene.R
+output file will make in the same directory as toxoDBGFF file.
 }
 \examples{
 toxodb2ugene(toxoDBGFF)
