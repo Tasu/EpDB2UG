@@ -2,10 +2,17 @@
 
 This package can be used as a utility tool to convert EupathDB GFF output to the local annotation files and DNA sequences for UGENE.
 
-#install
+#clone R project
+1.install git in your system.
+2.open parent directory you want to locate this Rproject directory
+3.open shell and type $git clone https://github.com/Tasu/EpDB2UG.git
+
+#install for your R packge library
 install.packages("devtools")
 library("devtools")
-devtools::install_github("klutometis/roxygen")
+devtools::install_github("Tasu/EpDB2UG")
+library(EpDB2UG)
+help(package = EpDB2UG)
 
 #to get input GFF anotation file with genome sequence (of interest)
 1.Go to genome browser in eupathdb.
