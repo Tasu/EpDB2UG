@@ -4,7 +4,11 @@
 #read requirement
 library(EpDB2UG)
 ####not recommended###
-toxo2ugene("~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/TGME49_chrVIII_5677701_5687700.gff3")
+dirL<-("~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/")
+flist<-dir(dirL)
+files=paste(dirL,flist[grepl("*gff3$",flist)],sep="")
+files
+sapply(files,toxodb2ugene)
 #####
 
 ######please change these 4 parameter for your settings.###########
