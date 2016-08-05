@@ -127,20 +127,43 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
 #'
 #' utility for this package functions (not recommended.)
 #' please refer--> https://github.com/Tasu/EpDB2UG/blob/master/build-script/toxodb2ugene.R
-#' output file will make in the same directory as toxoDBGFF file.
+#' output file is ugene-compatible genbank file, may not be compatible for other software.
 #' @param toxoDBGFF
 #' @export
 #' @examples
 #' toxodb2ugene(toxoDBGFF)
 toxodb2ugene<-function(toxoDBGFF){
+  #IO FILE PASS
   in_f<-toxoDBGFF
   outFASTAUGENE<-paste(in_f,".fasta",sep="")
   outGFFUGENE<-paste(in_f,".ugene.gff",sep="")
+  outGENBANK<-paste(in_f,".gb",sep="")
   tempDir<-"./temp"
   outGFFtemp<-paste(tempDir,runif(1),sep="")
+  cat(paste("formatting",toxoDBGFF,"to", outFASTAUGENE,"and",outGFFUGENE))
+  try(
+    file.exists(outFASTAUGENE){
+      stop("output file exist, process aborted.")
+  }
   parsegff3WithSeq(inF=in_f,outGFF=outGFFtemp,outFASTA=outFASTAUGENE)
   #edit base position
+  try(
+    file.exists(outGFFUGENE){
+      stop("output file exist, process aborted.")
+  }
   modifyGFF4UGENE(toxoDBGFF=outGFFtemp, UGENEGFF=outGFFUGENE)
   #delete temp file
   file.remove(outGFFtemp)
+
+  #read fasta file for genbank flatfile seq formatting
+  fasta<-.readFASTA(outFASTAUGENE)
+  #read gff file for genbank feature lists
+  featureList<-.readGFF(outGFFUGENE)
+
+  #write genbank file
+  try(
+    file.exists(outGENBANK){
+      stop("output file exist, process aborted.")
+  }
+  .writeGenbank(outfile=outGENBANK,fasta=fasta,featureList=featureList)
 }
