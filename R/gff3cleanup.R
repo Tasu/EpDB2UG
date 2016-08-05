@@ -139,9 +139,8 @@ toxodb2ugene<-function(toxoDBGFF){
   outFASTAUGENE<-paste(in_f,".fasta",sep="")
   outGFFUGENE<-paste(in_f,".ugene.gff",sep="")
   outGENBANK<-paste(in_f,".gb",sep="")
-  tempDir<-"./temp"
-  outGFFtemp<-paste(tempDir,runif(1),sep="")
-  cat(paste("formatting",toxoDBGFF,"to", outFASTAUGENE,"and",outGFFUGENE))
+  tempPrefix<-"./temp"
+  outGFFtemp<-paste(tempPrefix,runif(1),sep="")
   try(if(file.exists(outFASTAUGENE))stop("output file exist, process aborted."))
   parsegff3WithSeq(inF=in_f,outGFF=outGFFtemp,outFASTA=outFASTAUGENE)
   #edit base position

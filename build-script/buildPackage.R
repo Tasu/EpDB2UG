@@ -4,7 +4,7 @@ library("devtools")
 #for documentation
 devtools::install_github("klutometis/roxygen")
 library(roxygen2)
-document()#or run build source Packages from the RStudio
+devtools::document()#or run build source Packages from the RStudio
 
 #create EpDB2UG package in local directory and commit it.
 pkgname = 'EpDB2UG'
