@@ -25,11 +25,12 @@ devtools::check(pkgname)
 
 #create document
 setwd("./EpDB2UG")
-document()
+devtools::document()
 
 #install in local #for test
 setwd("..")
-install("EpDB2UG")
+getwd()
+devtools::install("EpDB2UG")
 library(EpDB2UG)
 help(package = EpDB2UG)
 detach("package:EpDB2UG", unload = T)

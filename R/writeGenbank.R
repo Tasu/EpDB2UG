@@ -10,10 +10,6 @@ FORMAT_ORIGIN="ORIGIN"
 FORMAT_ENDMARK="//"
 ###################
 
-featureStr=list(start=0,end=0,complement=F,notes=list())
-fasta=llist(name="SEQNAME",seq="ATGC")
-
-
 #modify the outraged value
 .trimFeature=function(featureList,seqLen){
   for(i in 1:length(featureList)){
@@ -72,18 +68,20 @@ fasta=llist(name="SEQNAME",seq="ATGC")
 }
 
 .readGFF<-function(inF){
-  #inF<-"~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/done//TGME49_chrIb_823555_857088.ugene.gff3"
+#   inF<-"~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/done//TGME49_chrIb_823555_857088.ugene.gff3"
   multi<-readLines(inF)
   featureList<-list()
   for(i in 1:length(multi)){
+    #i=1
     l<-multi[i]
-    feature<-featureStr#empty feature
+    feature<-list()#empty feature
     annotation<-strsplit(l,split = "\t")[[1]]
     #position
     feature$start<-annotation[4]
     feature$end<-annotation[5]
     feature$complement<-annotation[7]=="-"
     #annotation type
+    feature$notes<-list()
     feature$notes["ugene_type"]<-paste('/ugene_name="',feature[3],'"',sep="")
     #annotation description
     attrList<-annotation[9]
@@ -93,7 +91,7 @@ fasta=llist(name="SEQNAME",seq="ATGC")
       note<-paste('/',attrNameValue[1],'="',attrNameValue[2],'"',sep="")
       feature$note[attrNameValue[1]]<-note
     }
-  featureList[i]<-feature
+  featureList[[i]]<-feature
   }
   featureList#return featureList
 }

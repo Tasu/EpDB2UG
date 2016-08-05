@@ -88,7 +88,8 @@ parsegff3WithSeq<-function(inF,outGFF,outFASTA){
 #' modifyGFF4UGENE
 #'
 #' this function edits the base position
-#' @param toxoDBGFF, UGENEGFF
+#' @param toxoDBGFF input file path
+#' @param UGENEGFF output file path
 #' @export
 #' @examples
 #' modifyGFF4UGENE(toxoDBGFF, UGENEGFF)
@@ -128,7 +129,7 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
 #' utility for this package functions (not recommended.)
 #' please refer--> https://github.com/Tasu/EpDB2UG/blob/master/build-script/toxodb2ugene.R
 #' output file is ugene-compatible genbank file, may not be compatible for other software.
-#' @param toxoDBGFF
+#' @param toxoDBGFF input file path
 #' @export
 #' @examples
 #' toxodb2ugene(toxoDBGFF)
@@ -141,16 +142,10 @@ toxodb2ugene<-function(toxoDBGFF){
   tempDir<-"./temp"
   outGFFtemp<-paste(tempDir,runif(1),sep="")
   cat(paste("formatting",toxoDBGFF,"to", outFASTAUGENE,"and",outGFFUGENE))
-  try(
-    file.exists(outFASTAUGENE){
-      stop("output file exist, process aborted.")
-  }
+  try(if(file.exists(outFASTAUGENE))stop("output file exist, process aborted."))
   parsegff3WithSeq(inF=in_f,outGFF=outGFFtemp,outFASTA=outFASTAUGENE)
   #edit base position
-  try(
-    file.exists(outGFFUGENE){
-      stop("output file exist, process aborted.")
-  }
+  try(if(file.exists(outGFFUGENE))stop("output file exist, process aborted."))
   modifyGFF4UGENE(toxoDBGFF=outGFFtemp, UGENEGFF=outGFFUGENE)
   #delete temp file
   file.remove(outGFFtemp)
@@ -161,9 +156,6 @@ toxodb2ugene<-function(toxoDBGFF){
   featureList<-.readGFF(outGFFUGENE)
 
   #write genbank file
-  try(
-    file.exists(outGENBANK){
-      stop("output file exist, process aborted.")
-  }
+  try(if(file.exists(outGENBANK))stop("output file exist, process aborted."))
   .writeGenbank(outfile=outGENBANK,fasta=fasta,featureList=featureList)
 }

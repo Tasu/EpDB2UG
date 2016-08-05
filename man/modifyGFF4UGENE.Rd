@@ -7,7 +7,9 @@
 modifyGFF4UGENE(toxoDBGFF, UGENEGFF)
 }
 \arguments{
-\item{toxoDBGFF, }{UGENEGFF}
+\item{toxoDBGFF}{input file path}
+
+\item{UGENEGFF}{output file path}
 }
 \description{
 this function edits the base position
