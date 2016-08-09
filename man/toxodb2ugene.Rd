@@ -10,10 +10,10 @@ toxodb2ugene(toxoDBGFF)
 \item{toxoDBGFF}{input file path}
 }
 \description{
-please refer--> https://github.com/Tasu/EpDB2UG/blob/master/build-script/toxodb2ugene.R
-output file is ugene-compatible genbank file, may not be compatible for other software.
+fasta, gff, position fixed gff, genbank file will be made.
+output genbank file is ugene-compatible, may not be compatible for other software.
 }
 \examples{
-toxodb2ugene(toxoDBGFF)
+
 }
 

@@ -10,10 +10,7 @@
 #' @param outFASTA output fasta file path
 #' @export
 #' @examples
-#' inF<-"FILEPATH TO TOXODB GFF3 FILE INCLUDING track data and fasta sequence"
-#' outGFF<-"FILEPATH TO STOR GFF PART"
-#' outFASTA<-"FILEPATH TO STORE FASTA PART"
-#' parsegff3WithSeq(inF,outGFF,outFASTA)
+#'
 parsegff3WithSeq<-function(inF,outGFF,outFASTA){
   #init parameter
   gffPart<-FALSE
@@ -56,11 +53,11 @@ parsegff3WithSeq<-function(inF,outGFF,outFASTA){
   try(if(is.null(fastaTmp))stop("fasta part could not be found in input file. please make sure you check the include sequence box when you download gff3 file in ToxoDB."))
   #out each file
   fastaOverwrite="yes"
-  if(file.exists(outFASTA)) fastaOverwrite<-readline(prompt=paste("fasta output file, ", outFASTA, " already exists. Do you want to overwrite? yes / no [enter]"),sep="")
+  if(file.exists(outFASTA)) fastaOverwrite<-readline(prompt=paste("fasta output file, ", outFASTA, " already exists. Do you want to overwrite? yes / no [enter]",sep=""))
   if(fastaOverwrite=="yes") writeLines(fastaTmp,con = outFASTA)
 
   gffOverwrite="yes"
-  if(file.exists(outGFF)) gffOverwrite<-readline(prompt=paste("gff output file, ", outGFF, " already exists. Do you want to overwrite? yes / no [enter]"),sep="")
+  if(file.exists(outGFF)) gffOverwrite<-readline(prompt=paste("gff output file, ", outGFF, " already exists. Do you want to overwrite? yes / no [enter]",sep=""))
   if(gffOverwrite=="yes") writeLines(gffTmp,con = outGFF)
 }
 
@@ -72,22 +69,25 @@ parsegff3WithSeq<-function(inF,outGFF,outFASTA){
 #' @param UGENEGFF output file path
 #' @export
 #' @examples
-#' modifyGFF4UGENE(toxoDBGFF, UGENEGFF)
+#'
 modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
   #init parameter
   startCol<-4  #column 4 in GFF is start position of the features
   endCol<-5    #column 5 in GFF is end position of the features
-  sequence-region-pattern<-"^##sequence-region "
-  position-splitter<-c("..",":")
+  sequence_region_pattern<-"^##sequence-region "
+  position_splitter<-c("..",":")
   #read gff file
+  in_F=""
+  in_F<-toxoDBGFF
+  try(if(in_F=="")stop("ToxoDB GFF input path is required."))
   gff3 <- readLines(toxoDBGFF)
   #get position in the chromosome
-  regionline <- gff3[grepl(pattern = sequence-region-pattern, gff3)]
+  regionline <- gff3[grepl(pattern = sequence_region_pattern, gff3)]
   #*:startNumber..endNumber
   startPosition <- as.numeric(
   unlist(
-      strsplit(split = position-splitter[1], fixed=T,
-               x = unlist(strsplit(x = regionline, split = position-splitter[2], fixed = T)
+      strsplit(split = position_splitter[1], fixed=T,
+               x = unlist(strsplit(x = regionline, split = position_splitter[2], fixed = T)
                )[2]
       )
     )[1]
@@ -102,7 +102,7 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
   gff3out[,endCol]<-ends
   #write GFF in new GFF file.
   gffOverwrite="yes"
-  if(file.exists(UGENEGFF)) gffOverwrite<-readline(prompt=paste("position fixed gff output file, ", UGENEGFF, " already exists. Do you want to overwrite? yes / no [enter]"),sep="")
+  if(file.exists(UGENEGFF)) gffOverwrite<-readline(prompt=paste("position fixed gff output file, ", UGENEGFF, " already exists. Do you want to overwrite? yes / no [enter]",sep=""))
   if(gffOverwrite=="yes") write.table(gff3out,file = UGENEGFF,sep = "\t", quote = F, row.names = F, col.names = F)
 }
 
@@ -113,7 +113,7 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
 #' @param inF gff file path
 #' @export
 #' @examples
-#' TODO
+#'
 .readGFF<-function(inF){
   multi<-readLines(inF)
   #TODO validation of gff file format here
@@ -149,7 +149,7 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
 #' @param inF fasta file path
 #' @export
 #' @examples
-#' TODO
+#'
 .readFASTA<-function(inF){
   multi<-readLines(inF)
   #TODO fasta format validation here

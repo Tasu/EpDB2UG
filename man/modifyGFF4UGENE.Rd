@@ -15,6 +15,6 @@ modifyGFF4UGENE(toxoDBGFF, UGENEGFF)
 this function edits the base position
 }
 \examples{
-modifyGFF4UGENE(toxoDBGFF, UGENEGFF)
+
 }
 

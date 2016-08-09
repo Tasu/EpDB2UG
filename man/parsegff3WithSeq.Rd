@@ -17,9 +17,6 @@ parsegff3WithSeq(inF, outGFF, outFASTA)
 split EupathDB GFF3 with sequence to GFF and FASTA
 }
 \examples{
-inF<-"FILEPATH TO TOXODB GFF3 FILE INCLUDING track data and fasta sequence"
-outGFF<-"FILEPATH TO STOR GFF PART"
-outFASTA<-"FILEPATH TO STORE FASTA PART"
-parsegff3WithSeq(inF,outGFF,outFASTA)
+
 }
 

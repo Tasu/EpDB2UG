@@ -6,7 +6,7 @@
 #' @param toxoDBGFF input file path
 #' @export
 #' @examples
-#' toxodb2ugene(toxoDBGFF)
+#'
 toxodb2ugene<-function(toxoDBGFF){
   #FILE IO
   in_f<-toxoDBGFF

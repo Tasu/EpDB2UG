@@ -5,7 +5,7 @@
 #' @param featureList list of gff annotation line
 #' @export
 #' @examples
-#' todo
+#'
 .trimFeature=function(featureList,seqLen){
   resultList=list()
   for(i in 1:length(featureList)){
@@ -27,7 +27,7 @@
 #' @param header name of sequence
 #' @export
 #' @examples
-#' TODO
+#'
 .weaveHeader=function(header){
   FORMAT_LOCUS="LOCUS      "#paste with space
   FORMAT_UNIMARK="UNIMARK    "#paste with space
@@ -44,7 +44,7 @@
 #' @param seq sequence
 #' @export
 #' @examples
-#' TODO
+#'
 .weaveBody=function(featureList,seq){
   #seq=fasta$seq
   FORMAT_FEATURE="FEATURES             Location/Qualifiers"
@@ -89,13 +89,12 @@
 #' @param featureList gff
 #' @export
 #' @examples
-#' TODO
+#'
 .writeGenbank<-function(outfile,fasta,featureList){
   tmp<-.weaveHeader(fasta$name)
   tmp<-c(tmp,.weaveBody(featureList,fasta$seq))
   genbankOverwrite="yes"
-  if(file.exists(outfile)) genbankOverwrite<-readline(prompt=paste("genbank output file, ", outfile, " already exists. Do you want to overwrite? yes / no [enter]"),sep="")
+  if(file.exists(outfile)) genbankOverwrite<-readline(prompt=paste("genbank output file, ", outfile, " already exists. Do you want to overwrite? yes / no [enter]",sep=""))
   if(genbankOverwrite=="yes") write(tmp,file = outfile,ncolumns = 1,sep="")
 }
-
 
