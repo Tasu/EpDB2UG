@@ -57,6 +57,7 @@ $git push -u origin master
 #if you forget to switch branch from master to dev...
 #don't worry, you can add -b option
 $git checkout -b dev
+$git push -u origin dev
 
 #to close the branch
 $git checkout master
