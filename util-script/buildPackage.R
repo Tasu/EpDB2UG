@@ -38,6 +38,10 @@ devtools::install_github("Tasu/EpDB2UG")
 library(EpDB2UG)
 help(package = EpDB2UG)
 
+#TODO
+#test package with testthat
+
+
 
 
 
