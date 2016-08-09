@@ -4,7 +4,6 @@ library("devtools")
 #for documentation
 devtools::install_github("klutometis/roxygen")
 library(roxygen2)
-devtools::document()#or run build source Packages from the RStudio
 
 #create EpDB2UG package in local directory and commit it.
 pkgname = 'EpDB2UG'
@@ -21,8 +20,6 @@ devtools::create(pkgname, description=list(
 )
 devtools::check(pkgname)
 
-#locate source in R directory
-
 #create document
 setwd("./EpDB2UG")
 devtools::document()
@@ -36,17 +33,28 @@ help(package = EpDB2UG)
 detach("package:EpDB2UG", unload = T)
 remove.packages("EpDB2UG")
 library(EpDB2UG)#this should give you error message 'there is no package called....'
-#you can manage version control from RStudio->Tools->Version control.
-
-#git command for first command
-#echo "# EpDB2UG" >> README.md
-#git init
-#git add README.md
-#git commit -m "first commit"
-#git remote add origin https://github.com/Tasu/EpDB2UG.git
-#git push -u origin master
-
 #test installing from github
 devtools::install_github("Tasu/EpDB2UG")
 library(EpDB2UG)
 help(package = EpDB2UG)
+
+
+
+
+#git commands
+#first commit. can we do this form RStudio with GUI?
+$echo "# EpDB2UG" >> README.md
+$git init
+$git add README.md
+$git commit -m "first commit"
+$git remote add origin https://github.com/Tasu/EpDB2UG.git
+$git push -u origin master
+
+#if you forget to switch branch from master to dev...
+#don't worry, you can add -b option
+$git checkout -b dev
+
+#to close the branch
+$git checkout master
+$git merge dev
+$git branch -d dev

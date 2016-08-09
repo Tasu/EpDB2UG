@@ -24,12 +24,12 @@ library(EpDB2UG)
 #change to your target directory
 dirL<-("~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/")
 flist<-dir(dirL)
-files=paste(dirL,flist[grepl("*gff3$",flist)],sep="")
+files<-paste(dirL,flist[grepl("*gff3$",flist)],sep="")
 sapply(files,toxodb2ugene)
 #############batch usage: END HERE###################################
 
 
-########in toxodb2ugene#############
+########if you want to know what's going on#############
 #change if needed. DEFAULT: output files will be made in the same directry tha you put input file#####
 #2.   fasta file name you will use for ugene
 outFASTAUGENE<-paste(in_f,".fasta",sep="")

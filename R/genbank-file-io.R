@@ -93,55 +93,9 @@
 .writeGenbank<-function(outfile,fasta,featureList){
   tmp<-.weaveHeader(fasta$name)
   tmp<-c(tmp,.weaveBody(featureList,fasta$seq))
-  write(tmp,file = outfile,ncolumns = 1,sep="")
+  genbankOverwrite="yes"
+  if(file.exists(outfile)) genbankOverwrite<-readline(prompt=paste("genbank output file, ", outfile, " already exists. Do you want to overwrite? yes / no [enter]"),sep="")
+  if(genbankOverwrite=="yes") write(tmp,file = outfile,ncolumns = 1,sep="")
 }
 
-#' .readGFF
-#'
-#' gff to featurelist
-#' @param inF gff file path
-#' @export
-#' @examples
-#' TODO
-.readGFF<-function(inF){
-  #inF="~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/testTGME49_chrX_1032284_1067339.gff3.ugene.gff"
-  multi<-readLines(inF)
-  featureList<-list()
-  for(i in 1:length(multi)){
-    l<-multi[i]
-    feature<-list()#empty feature
-    annotation<-strsplit(l,split = "\t")[[1]]
-    #position
-    feature$start<-annotation[4]
-    feature$end<-annotation[5]
-    feature$complement<-annotation[7]=="-"
-    #annotation type
-    feature$notes<-list()
-    feature$notes["ugene_type"]<-paste('/ugene_name="',annotation[3],'"',sep="")
-    #annotation description
-    attrList<-annotation[9]
-    for(attr in strsplit(attrList,split=";")[[1]]){
-      #attr<-strsplit(attrList,split=";")[[1]][1]
-      attrNameValue<-strsplit(attr,split="=")[[1]]
-      note<-paste('/',attrNameValue[1],'="',attrNameValue[2],'"',sep="")
-      feature$notes[attrNameValue[1]]<-note
-    }
-  featureList[[i]]<-feature
-  }
-  featureList#return featureList
-}
 
-#' .readFASTA
-#'
-#' fasta to name and seq
-#' @param inF fasta file path
-#' @export
-#' @examples
-#' TODO
-.readFASTA<-function(inF){
-  multi<-readLines(inF)
-  seqName<-substr(multi[1],2,nchar(multi[1]))
-  seq<-paste(multi[-1],collapse = "")
-  fasta=list(name=seqName,seq=seq)
-  fasta#return fasta object
-}
