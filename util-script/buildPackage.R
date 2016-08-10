@@ -1,8 +1,7 @@
 #make package of your own
 # install.packages("devtools")
-library("devtools")
 #for documentation
-devtools::install_github("klutometis/roxygen")
+install.packages("roxygen2")
 library(roxygen2)
 
 #create EpDB2UG package in local directory and commit it.
@@ -20,10 +19,6 @@ devtools::create(pkgname, description=list(
 )
 devtools::check(pkgname)
 
-#create document
-setwd("./EpDB2UG")
-devtools::document()
-
 #install in local #for test
 setwd("..")
 getwd()
@@ -38,12 +33,10 @@ devtools::install_github("Tasu/EpDB2UG")
 library(EpDB2UG)
 help(package = EpDB2UG)
 
-#TODO
-#test package with testthat
-
-
-
-
+#testthat
+install.packages("testthat")
+library(testthat)
+devtools::test()
 
 #git commands
 #first commit. can we do this form RStudio with GUI?
