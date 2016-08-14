@@ -1,0 +1,67 @@
+TGME49_chrX	annotation	gene	-1415	1706	.	-	1	ID=gene.30562;Name=TGME49_227310;Note=hypothetical protein;soTerm=protein_coding;Contig=TGME49_chrX;product=hypothetical protein;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_tgon%7CTGME49_027310;isPseudo=0
+TGME49_chrX	annotation	UTR	-1415	-285	.	-	1	ID=UTR.30564;Parent=gene.30562
+TGME49_chrX	annotation	exon	-284	261	.	-	1	ID=exon.30564;Parent=gene.30562;isDeprecated=0
+TGME49_chrX	annotation	CDS	-284	261	.	-	1	ID=CDS.30564;Parent=gene.30562;isDeprecated=0
+TGME49_chrX	annotation	UTR	262	1706	.	-	1	ID=UTR.30564;Parent=gene.30562
+TGME49_chrX	annotation	gene	1751	9403	.	+	1	ID=gene.30555;Name=TGME49_227300;Note=hypothetical protein;soTerm=protein_coding;Contig=TGME49_chrX;product=hypothetical protein;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_240674;isPseudo=0
+TGME49_chrX	annotation	UTR	1751	1809	.	+	1	ID=UTR.30557;Parent=gene.30555
+TGME49_chrX	annotation	CDS	1810	9183	.	+	1	ID=CDS.30557;Parent=gene.30555;isDeprecated=0
+TGME49_chrX	annotation	exon	1810	9183	.	+	1	ID=exon.30557;Parent=gene.30555;isDeprecated=0
+TGME49_chrX	annotation	UTR	9184	9403	.	+	1	ID=UTR.30557;Parent=gene.30555
+TGME49_chrX	annotation	gene	9464	14965	.	-	1	ID=gene.30546;Name=TGME49_227290;Note=histone deacetylase HDAC3 %28HDAC3%29;soTerm=protein_coding;gName=HDAC3;Contig=TGME49_chrX;product=histone deacetylase HDAC3 %28HDAC3%29;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_126742;isPseudo=0
+TGME49_chrX	annotation	UTR	9464	11773	.	-	1	ID=UTR.30551;Parent=gene.30546
+TGME49_chrX	annotation	CDS	11774	12783	.	-	1	ID=CDS.30551;Parent=gene.30546;isDeprecated=0
+TGME49_chrX	annotation	exon	11774	12783	.	-	1	ID=exon.30551;Parent=gene.30546;isDeprecated=0
+TGME49_chrX	annotation	CDS	13216	13411	.	-	1	ID=CDS.30547;Parent=gene.30546;isDeprecated=0
+TGME49_chrX	annotation	exon	13216	13411	.	-	1	ID=exon.30547;Parent=gene.30546;isDeprecated=0
+TGME49_chrX	annotation	CDS	14150	14299	.	-	1	ID=CDS.30550;Parent=gene.30546;isDeprecated=0
+TGME49_chrX	annotation	exon	14150	14299	.	-	1	ID=exon.30550;Parent=gene.30546;isDeprecated=0
+TGME49_chrX	annotation	UTR	14300	14965	.	-	1	ID=UTR.30550;Parent=gene.30546
+TGME49_chrX	annotation	gene	15001	20056	.	-	1	ID=gene.30538;Name=TGME49_227280;Note=dense granule protein GRA3 %28GRA3%29;soTerm=protein_coding;gName=GRA3;Contig=TGME49_chrX;product=dense granule protein GRA3 %28GRA3%29;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_240675;isPseudo=0
+TGME49_chrX	annotation	UTR	15001	16959	.	-	1	ID=UTR.30540;Parent=gene.30538
+TGME49_chrX	annotation	exon	16960	17622	.	-	1	ID=exon.30540;Parent=gene.30538;isDeprecated=0
+TGME49_chrX	annotation	CDS	16960	17622	.	-	1	ID=CDS.30540;Parent=gene.30538;isDeprecated=0
+TGME49_chrX	annotation	UTR	17623	20056	.	-	1	ID=UTR.30540;Parent=gene.30538
+TGME49_chrX	annotation	gene	19875	20874	.	+	1	ID=gene.30531;Name=TGME49_227275;Note=hypothetical protein;soTerm=protein_coding;Contig=TGME49_chrX;product=hypothetical protein;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_tggt%7CTGGT1_227275;isPseudo=0
+TGME49_chrX	annotation	exon	19875	19943	.	+	1	ID=exon.30535;Parent=gene.30531;isDeprecated=0
+TGME49_chrX	annotation	CDS	19875	19943	.	+	1	ID=CDS.30535;Parent=gene.30531;isDeprecated=0
+TGME49_chrX	annotation	exon	20489	20872	.	+	1	ID=exon.30532;Parent=gene.30531;isDeprecated=0
+TGME49_chrX	annotation	CDS	20489	20872	.	+	1	ID=CDS.30532;Parent=gene.30531;isDeprecated=0
+TGME49_chrX	annotation	UTR	20873	20874	.	+	1	ID=UTR.30532;Parent=gene.30531
+TGME49_chrX	annotation	gene	20884	23922	.	+	1	ID=gene.30520;Name=TGME49_227270;Note=hypothetical protein;soTerm=protein_coding;Contig=TGME49_chrX;product=hypothetical protein;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_229255;isPseudo=0
+TGME49_chrX	annotation	CDS	20884	22224	.	+	1	ID=CDS.30524;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	exon	20884	22224	.	+	1	ID=exon.30524;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	exon	22716	22780	.	+	1	ID=exon.30521;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	CDS	22716	22780	.	+	1	ID=CDS.30521;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	CDS	23121	23262	.	+	1	ID=CDS.30527;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	exon	23121	23262	.	+	1	ID=exon.30527;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	exon	23420	23527	.	+	1	ID=exon.30526;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	CDS	23420	23527	.	+	1	ID=CDS.30526;Parent=gene.30520;isDeprecated=0
+TGME49_chrX	annotation	UTR	23528	23922	.	+	1	ID=UTR.30526;Parent=gene.30520
+TGME49_chrX	annotation	gene	24376	33134	.	-	1	ID=gene.30503;Name=TGME49_227260;Note=RIO1 family protein;soTerm=protein_coding;Contig=TGME49_chrX;product=RIO1 family protein;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_127684;isPseudo=0
+TGME49_chrX	annotation	UTR	24376	24865	.	-	1	ID=UTR.30504;Parent=gene.30503
+TGME49_chrX	annotation	exon	24376	24865	.	-	1	ID=exon.30504;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	UTR	25585	26473	.	-	1	ID=UTR.30511;Parent=gene.30503
+TGME49_chrX	annotation	exon	26474	26824	.	-	1	ID=exon.30511;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	CDS	26474	26824	.	-	1	ID=CDS.30511;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	exon	26972	27290	.	-	1	ID=exon.30513;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	CDS	26972	27290	.	-	1	ID=CDS.30513;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	CDS	27853	27973	.	-	1	ID=CDS.30509;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	exon	27853	27973	.	-	1	ID=exon.30509;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	exon	28853	28994	.	-	1	ID=exon.30514;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	CDS	28853	28994	.	-	1	ID=CDS.30514;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	CDS	30609	30820	.	-	1	ID=CDS.30510;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	exon	30609	30820	.	-	1	ID=exon.30510;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	CDS	31623	31998	.	-	1	ID=CDS.30507;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	exon	31623	31998	.	-	1	ID=exon.30507;Parent=gene.30503;isDeprecated=0
+TGME49_chrX	annotation	UTR	31999	33134	.	-	1	ID=UTR.30507;Parent=gene.30503
+TGME49_chrX	annotation	gene	33275	38505	.	+	1	ID=gene.30489;Name=TGME49_227150;Note=glutaredoxin, putative;soTerm=protein_coding;Contig=TGME49_chrX;product=glutaredoxin, putative;taxon=Toxoplasma gondii ME49;isDeprecated=0;orthomcl_name=OG5_126864;isPseudo=0
+TGME49_chrX	annotation	UTR	33275	34070	.	+	1	ID=UTR.30493;Parent=gene.30489
+TGME49_chrX	annotation	exon	34071	34819	.	+	1	ID=exon.30493;Parent=gene.30489;isDeprecated=0
+TGME49_chrX	annotation	CDS	34071	34819	.	+	1	ID=CDS.30493;Parent=gene.30489;isDeprecated=0
+TGME49_chrX	annotation	exon	35232	35292	.	+	1	ID=exon.30494;Parent=gene.30489;isDeprecated=0
+TGME49_chrX	annotation	CDS	35232	35292	.	+	1	ID=CDS.30494;Parent=gene.30489;isDeprecated=0
+TGME49_chrX	annotation	exon	35764	35892	.	+	1	ID=exon.30490;Parent=gene.30489;isDeprecated=0
+TGME49_chrX	annotation	CDS	35764	35892	.	+	1	ID=CDS.30490;Parent=gene.30489;isDeprecated=0
+TGME49_chrX	annotation	exon	36049	36108	.	+	1	ID=exon.30496;Parent=gene.30489;isDeprecated=0
+TGME49_chrX	annotation	CDS	36049	36108	.	+	1	ID=CDS.30496;Parent=gene.30489;isDeprecated=0

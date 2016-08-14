@@ -4,7 +4,7 @@
 \alias{parsegff3WithSeq}
 \title{parsegff3WithSeq}
 \usage{
-parsegff3WithSeq(inF, outGFF, outFASTA)
+parsegff3WithSeq(inF = "", outGFF = "", outFASTA = "")
 }
 \arguments{
 \item{inF}{input GFF3 file path}
@@ -15,6 +15,7 @@ parsegff3WithSeq(inF, outGFF, outFASTA)
 }
 \description{
 split EupathDB GFF3 with sequence to GFF and FASTA
+deplicated
 }
 \examples{
 

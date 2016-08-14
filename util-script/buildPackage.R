@@ -1,8 +1,7 @@
 #make package of your own
 # install.packages("devtools")
-library("devtools")
 #for documentation
-devtools::install_github("klutometis/roxygen")
+install.packages("roxygen2")
 library(roxygen2)
 
 #create EpDB2UG package in local directory and commit it.
@@ -20,10 +19,6 @@ devtools::create(pkgname, description=list(
 )
 devtools::check(pkgname)
 
-#create document
-setwd("./EpDB2UG")
-devtools::document()
-
 #install in local #for test
 setwd("..")
 getwd()
@@ -38,8 +33,10 @@ devtools::install_github("Tasu/EpDB2UG")
 library(EpDB2UG)
 help(package = EpDB2UG)
 
-
-
+#testthat
+install.packages("testthat")
+library(testthat)
+devtools::test()
 
 #git commands
 #first commit. can we do this form RStudio with GUI?
@@ -53,6 +50,7 @@ $git push -u origin master
 #if you forget to switch branch from master to dev...
 #don't worry, you can add -b option
 $git checkout -b dev
+$git push -u origin dev
 
 #to close the branch
 $git checkout master

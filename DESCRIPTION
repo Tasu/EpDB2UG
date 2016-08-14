@@ -11,3 +11,4 @@ LazyData: true
 URL: https://github.com/Tasu/EpDB2UG
 BugReports: https://github.com/Tasu/EpDB2UG/issues
 RoxygenNote: 5.0.1
+Suggests: testthat
