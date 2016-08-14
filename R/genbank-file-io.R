@@ -91,10 +91,24 @@
 #' @examples
 #'
 .writeGenbank<-function(outfile,fasta,featureList){
-  tmp<-.weaveHeader(fasta$name)
-  tmp<-c(tmp,.weaveBody(featureList,fasta$seq))
+  tmp<-.weaveGenbank(fasta,featureList)
   genbankOverwrite="yes"
   if(file.exists(outfile)) genbankOverwrite<-readline(prompt=paste("genbank output file, ", outfile, " already exists. Do you want to overwrite? yes / no [enter]",sep=""))
   if(genbankOverwrite=="yes") write(tmp,file = outfile,ncolumns = 1,sep="")
 }
+
+#' .weaveGenbank
+#'
+#' return characters vectors in genbank flat file format
+#' @param outfile output path
+#' @param fasta fasta
+#' @param featureList gff
+#' @examples
+#'
+.weaveGenbank<-function(fasta,featureList){
+  genbankCharVector<-.weaveHeader(fasta$name)
+  genbankCharVector<-c(genbankCharVector,.weaveBody(featureList,fasta$seq))
+  return (genbankCharVector)
+}
+
 

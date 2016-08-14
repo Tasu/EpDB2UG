@@ -1,7 +1,7 @@
 #main function
 #' toxodb2ugene
 #'
-#' fasta, gff, position fixed gff, genbank file will be made.
+#' fasta, position fixed gff, genbank file will be made.
 #' output genbank file is ugene-compatible, may not be compatible for other software.
 #' @param toxoDBGFF input file path
 #' @export
@@ -34,8 +34,6 @@ toxodb2ugene<-function(toxoDBGFF){
 }
 
 
-
-
 #' inputGFF3OutputGenbank
 #'
 #' genbank file will be made.
@@ -52,19 +50,15 @@ inputGFF3OutputGenbank<-function(toxoDBGFF){
   genbank<-list(seq=c(),featureList=c())
   #get seq and feature from gff3
   genbank<-list(
-    seq=.getSeqFromGFF3(inF=in_f),
+    seq=.getFastaFromGFF3(inF=in_f),
     featureList=.getFeatureFromGFF3(inF=in_f)
     )
+
   if(is.null(genbank$featureList)) stop ("gff part missing")
   if(is.null(genbank$seq)) stop ("fasta part missing")
-
-  genbankStream=c()
-  #get genbank file stream
-  genbankStream<-.makeGenbank(fasta=genbank$seq,featureList=genbank$featureList)
-  #write out file
-  if(is.null(genbankStream)) stop ("making genbank failed")
-  write(outfile=outGENBANK,genbankStream)
-  cat(paste("Please use",outGENBANK," for UGENE. You can delete other files, if you want."))
+   #write genbank file
+  .writeGenbank(outfile=outGENBANK,fasta=genbank$seq,featureList=genbank$featureList)
+  cat(paste("Please use",outGENBANK," for UGENE."))
 }
 
 
