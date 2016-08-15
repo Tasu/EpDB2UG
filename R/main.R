@@ -61,6 +61,3 @@ inputGFF3OutputGenbank<-function(toxoDBGFF){
   cat(paste("Please use",outGENBANK," for UGENE."))
 }
 
-
-
-

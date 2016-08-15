@@ -13,7 +13,7 @@ devtools::create(pkgname, description=list(
   Title=title_desc,
   Description=paste0(title_desc, '.'),
   `Authors@R`="person('Ta.', 'Su.', email='ex@example.com', role=c('aut', 'cre'))",
-  License='MIT',
+  License='MIT + file',
   URL=github_repo,
   BugReports=paste0(github_repo, '/issues'))
 )
@@ -25,6 +25,7 @@ getwd()
 devtools::install("EpDB2UG")
 library(EpDB2UG)
 help(package = EpDB2UG)
+#uninstall
 detach("package:EpDB2UG", unload = T)
 remove.packages("EpDB2UG")
 library(EpDB2UG)#this should give you error message 'there is no package called....'
@@ -32,11 +33,6 @@ library(EpDB2UG)#this should give you error message 'there is no package called.
 devtools::install_github("Tasu/EpDB2UG")
 library(EpDB2UG)
 help(package = EpDB2UG)
-
-#testthat
-install.packages("testthat")
-library(testthat)
-devtools::test()
 
 #git commands
 #first commit. can we do this form RStudio with GUI?

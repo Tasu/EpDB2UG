@@ -10,7 +10,7 @@ toxodb2ugene(toxoDBGFF)
 \item{toxoDBGFF}{input file path}
 }
 \description{
-fasta, gff, position fixed gff, genbank file will be made.
+fasta, position fixed gff, genbank file will be made.
 output genbank file is ugene-compatible, may not be compatible for other software.
 }
 \examples{
