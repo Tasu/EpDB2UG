@@ -250,3 +250,59 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
   fasta=list(name=seqName,seq=seq)
   return(fasta)
 }
+
+#' findGeneLocusFromToxoDBGFF
+#'
+#' input toxoDBID return genome locus position (chr, start, end, complement)
+#' ~1MB memory for 19MB ToxoDB-28_TgondiiME49.gff
+#' @param geneId toxoDB geneId ex. TGME49_286470
+#' @param gff path to toxodbgff file
+#' @export
+findGeneLocusFromToxoDBGFF<-function(geneId,gff){
+  conn<-file(gff,open="rt")
+  geneIdPattern<-paste("ID=",geneId,";",sep="")
+  flag<-TRUE
+  line<-c()
+#   library(pryr)
+#   maxMem<-0
+  while (flag){
+    line<-readLines(conn,n=1)
+    flag<-!grepl(geneIdPattern,line)
+#     maxMem<-max(maxMem,object.size(line))
+  }
+
+  gene<-strsplit(line,split = "\t")[[1]]
+#   cat("\nmaxObj\n")
+#   cat(maxMem)
+  close(conn)
+  return(list(chr=as.character(gene[1]),start=as.numeric(as.character(gene[4])),end=as.numeric(as.character(gene[5])),complement=as.character(gene[7])=="-"))
+}
+
+
+#' loadAllOnMemotry
+#'
+#' input toxoDBID return genome locus position (chr, start, end, complement)
+#' around 25MB will be used for 19MB ToxoDB-28_TgondiiME49.gff
+#' for test
+#' @param geneId toxoDB geneId ex. TGME49_286470
+#' @param gff path to toxodbgff file
+#' @export
+loadAllOnMemotry<-function(geneId,gff){
+  conn<-file(gff,open="rt")
+  geneIdPattern<-paste("ID=",geneId,";",sep="")
+  multi<-readLines(conn)
+  flag<-TRUE
+  line<-c()
+  index<-1
+  #   library(pryr)
+  #   maxMem<-0
+  #   maxMem<-max(maxMem,object.size(multi))
+  #around 25MB will be used for 19MB ToxoDB-28_TgondiiME49.gff
+  line<-grep(value = T,pattern = geneIdPattern,x = multi)
+  try(if(is.null(line)) stop ("ID not found in GFF"))
+  gene<-strsplit(line[1],split = "\t")[[1]]
+  #     cat("\nmaxObj\n")
+  #     cat(maxMem)
+  close(conn)
+  return(list(chr=as.character(gene[1]),start=as.numeric(as.character(gene[4])),end=as.numeric(as.character(gene[5])),complement=as.character(gene[7])=="-"))
+}

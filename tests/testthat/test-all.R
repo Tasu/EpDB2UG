@@ -26,3 +26,16 @@ test_that("no temp file", {
   file.remove(fs)
   expect_that(as.character(checksupTest[1]), equals(as.character(checksumExpect[1])))
 })
+
+test_that("get gLocus from GeneID", {
+  geneOfInterest<-"TGME49_286470"
+  gff<-"./testdata/current-toxodb/ToxoDB-28_TgondiiME49.gff"
+  time0<-Sys.time()
+  gLocus<-findGeneLocusFromToxoDBGFF(geneId=geneOfInterest,gff=gff)
+  time1<-Sys.time()
+  gLocus2<-loadAllOnMemotry(geneId=geneOfInterest,gff=gff)
+  time2<-Sys.time()
+  cat(paste("\nline by line / read file at once; ", difftime(time1,time0),difftime(time2,time1)))
+  expect_that(gLocus, equals(gLocus<-readRDS("./testdata/expect/TGME49_286470-gLocus.rds")))
+  expect_that(gLocus2, equals(gLocus<-readRDS("./testdata/expect/TGME49_286470-gLocus.rds")))
+})

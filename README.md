@@ -1,6 +1,6 @@
 ##EpDB2UG
 
-This package is a utility tool to convert EupathDB GFF3 output with sequence to the genbank format file for UGENE (annotated seqeuence file).
+This package is a utility tool to convert EupathDB GFF3 output with sequence to the genbank format file for UGENE (annotated sequence file).
 
 ##get started w/o reading manual
 please copy and paste scripts below in notepad or RStudio, edit and run in R console.
@@ -23,12 +23,13 @@ please copy and paste scripts below in notepad or RStudio, edit and run in R con
 
 ####coming feature(s)
 
+ 0. get chromosomal locus gff3 file from EupathDB with ID of gene of interest.
  1. translate the CDS to peptide to get the straight forward peptide translation of the gene.
 
 ####requirement
 This package was tested in R 3.2.0 x64 on OS X 10.11.6.
 "devtools" package in CRAN is required for easy installing this package from github.
-Package itself do not have dependency. Only R-base system is required. RStudio will make it easy to edit and run scripts, but not requried. 
+Package itself do not have dependency. Only R-base system is required. RStudio will make it easy to edit and run scripts, but not required. 
 
 ####install for your R packge library
  - In R console.
