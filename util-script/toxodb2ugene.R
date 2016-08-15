@@ -4,8 +4,7 @@
 
 #install requirement
 install.packages("devtools")
-library(devtools)
-install_github("Tasu/EpDB2UG")
+devtools::install_github("Tasu/EpDB2UG")
 
 
 ###################################################################
@@ -13,7 +12,7 @@ install_github("Tasu/EpDB2UG")
 ###################################################################
 library(EpDB2UG)
 #1.change to your input gff file
-in_f<-"~/Google Drive/louLab/cyst wall/figures-6umclearance/tagging/temp/testTGME49_chrX_1032284_1067339.gff3"
+in_f<-"~/Documents/OneDrive/ToxoDB2Ugene/EPDB2UG/tests/testthat/testdata/input/testTGME49_chrX_1032284_1067339.gff3"
 inputGFF3OutputGenbank(in_f)
 #####################################
 
