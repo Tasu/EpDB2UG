@@ -2,4 +2,4 @@
 .Rhistory
 .RData
 .DS_Store
-tests/testthat/testdata/current-toxxodb/*
+tests/testthat/testdata/current-toxodb/*
