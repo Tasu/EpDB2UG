@@ -251,6 +251,40 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
   return(fasta)
 }
 
+#' subFasta
+#'
+#' return subregion of an input fasta as a seq object
+#' seq(name="CHR_START_END",seq="ATGC...")
+#' @param gLocus genome locus list(start=0, end=0, complement=F)
+#' @param multi character vectors
+#' @export
+#' @examples
+#'
+subFasta<-function(gLocus=list(chr="",start=0,end=0,complement=F),fasta="filepath"){
+  seqName<-paste(gLocus$chr,gLocus$start,gLocus$end,sep="_")
+  try(if(!file.exists(fasta)) stop("input fasta file not found."))
+  conn<-file(fasta,open="r")#open r is required to save your time
+  flag<-TRUE
+  line<-""
+  header<-paste("^>",gLocus$chr," ",sep="")
+  while (flag){
+    line<-readLines(conn,n=1)
+    flag<-!grepl(header,line)
+  }
+  seqV<-c()
+  seqLen<-0
+  while(seqLen<gLocus$end){
+    line<-readLines(conn,n=1)
+    seqV<-c(seqV,line)
+    seqLen<-seqLen+nchar(line)
+  }
+  seq<-substr(x=paste(seqV,collapse = ""),start = gLocus$start,stop = gLocus$end)
+  fasta=list(name=seqName,seq=seq)
+  return(fasta)
+}
+
+
+
 #' findGeneLocusFromToxoDBGFF
 #'
 #' input toxoDBID return genome locus position (chr, start, end, complement)

@@ -30,7 +30,7 @@ sapply(files,inputGFF3OutputGenbank)
 
 #####################################################################
 ####sandbox: make genbank from Gene Of Interest ID.
-####require whole genome fasta and whole genome GFF
+####require whole genome fasta and whole genome GFF (any but in the same version)
 #####################################################################
 library(EpDB2UG)
 #init
@@ -54,7 +54,8 @@ surroundingLocus
 genbank<-list(seq=c(),featureList=c())
 #get seq and feature in locus of interest
 genbank<-list(
-  seq=subFasta(gLocus=surroundingLocus,fasta=fasta),
+  seq=subFasta(gLocus=surroundingLocus,fasta=fasta)
+  ,
   featureList=subGFF(gLocus=surroundingLocus,gff=gff)
 )
 

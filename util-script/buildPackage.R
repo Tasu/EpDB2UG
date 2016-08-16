@@ -1,7 +1,9 @@
-#make package of your own
-# install.packages("devtools")
+#welcom to Hadley's R dev world
+install.packages("devtools")
+install.packages("testthat")
 #for documentation
 install.packages("roxygen2")
+library(devtools)
 library(roxygen2)
 
 #create EpDB2UG package in local directory and commit it.
