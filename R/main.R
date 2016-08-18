@@ -61,3 +61,28 @@ inputGFF3OutputGenbank<-function(toxoDBGFF){
   cat(paste("Please use",outGENBANK," for UGENE."))
 }
 
+
+#' UI
+#'
+#' UI for inputGFF3OutputGenbank
+#' @export
+#'
+UI<-function(){
+  in_F<-c()
+  cat("let's select gff3 input file")
+  in_F<-file.choose()
+  if(readline("do you want to convert .gff3 files in the same directory? yes/no \n")=="yes"){
+    targetDir<-dirname(in_F)
+    files<-paste(targetDir,dir(targetDir,pattern = "gff3$"),sep="/")
+    cat("only .gff3 files will be converted. please select 'no' and convert one by one if your target file(s) do not have .gff3 suffix.")
+    if(length(files)>1){
+      sapply(files, inputGFF3OutputGenbank)
+    }else if (length(files)==1){
+      inputGFF3OutputGenbank(files)
+    }
+  }else{
+    inputGFF3OutputGenbank(in_F)
+  }
+}
+
+

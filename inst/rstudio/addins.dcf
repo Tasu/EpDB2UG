@@ -1,0 +1,5 @@
+
+Name: GFF3toGenabnk
+Description: Convert ToxoDB GFF3 with seq to genbank format for UGENE.
+Binding: UI
+Interactive: true

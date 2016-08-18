@@ -56,6 +56,7 @@ genbank<-list(seq=c(),featureList=c())
 genbank<-list(
   seq=subFasta(gLocus=surroundingLocus,fasta=fasta)
   ,
+  #TODO SUSPEND HERE
   featureList=subGFF(gLocus=surroundingLocus,gff=gff)
 )
 
@@ -69,3 +70,11 @@ cat(paste("Please use",outGENBANK," for UGENE."))
 saveRDS(gLocus,file = "~/Documents/OneDrive/ToxoDB2Ugene//EPDB2UG/tests/testthat/testdata/expect/TGME49_286470-gLocus.rds")
 remove(gLocus)
 gLocus<-readRDS("~/Documents/OneDrive/ToxoDB2Ugene//EPDB2UG/tests/testthat/testdata/expect/TGME49_286470-gLocus.rds")
+
+
+
+
+############################
+#shiny UI test
+############################
+
