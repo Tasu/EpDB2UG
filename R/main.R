@@ -45,6 +45,7 @@ toxodb2ugene<-function(toxoDBGFF){
 inputGFF3OutputGenbank<-function(toxoDBGFF){
   #FILE IO
   in_f<-toxoDBGFF
+  cat(paste("start converting", in_f, "\n"))
   outGENBANK<-paste(in_f,".gb",sep="")
 
   genbank<-list(seq=c(),featureList=c())
@@ -69,12 +70,19 @@ inputGFF3OutputGenbank<-function(toxoDBGFF){
 #'
 UI<-function(){
   in_F<-c()
-  cat("let's select gff3 input file")
+  cat("let's select gff3 input file (or any file in the directory where you want to run the batch conversion.")
   in_F<-file.choose()
-  if(readline("do you want to convert .gff3 files in the same directory? yes/no \n")=="yes"){
+  cat("only .gff3 files will be converted. please add .gff3 suffix to your target file, if not.")
+  batch<-T
+  if(readline("do you want to convert .gff3 files in the same directory? yes/no[yes ENTER] \n")=="no"){
+    batch<-F
+  }else{
+  }
+  if(batch){
     targetDir<-dirname(in_F)
     files<-paste(targetDir,dir(targetDir,pattern = "gff3$"),sep="/")
-    cat("only .gff3 files will be converted. please select 'no' and convert one by one if your target file(s) do not have .gff3 suffix.")
+    cat("convert gff3 files...\n")
+    cat(paste(files,"\n"))
     if(length(files)>1){
       sapply(files, inputGFF3OutputGenbank)
     }else if (length(files)==1){
