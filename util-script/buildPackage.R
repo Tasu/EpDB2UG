@@ -1,7 +1,21 @@
-#make package of your own
-# install.packages("devtools")
+#according to the http://rstudio.github.io/rstudioaddins/
+#We have to start from making file inst/rstudio/addins.dcf in the package.
+#open shell from project. Tools->Shell..
+#$mkdir -p ./inst/rstudio
+#$touch addins.dcf
+name<-"\nName: GFF3toGenabnk"
+description<-"Description: Convert ToxoDB GFF3 with seq to genbank format for UGENE."
+binding<-"Binding: inputGFF3OutputGenbank"
+interactive<-"Interactive: true"
+addins<-c(name,description,binding,interactive)
+write(x=addins,file="./inst/rstudio/addins.dcf",sep = "")
+
+#welcom to Hadley's R dev world
+install.packages("devtools")
+install.packages("testthat")
 #for documentation
 install.packages("roxygen2")
+library(devtools)
 library(roxygen2)
 
 #create EpDB2UG package in local directory and commit it.

@@ -251,6 +251,58 @@ modifyGFF4UGENE <- function(toxoDBGFF, UGENEGFF) {
   return(fasta)
 }
 
+#' subFasta
+#'
+#' return subregion of an input fasta as a seq object
+#' seq(name="CHR_START_END",seq="ATGC...")
+#' @param gLocus genome locus list(start=0, end=0, complement=F)
+#' @param multi character vectors
+#' @export
+#' @examples
+#'
+subFasta<-function(gLocus=list(chr="",start=0,end=0,complement=F),fasta="filepath"){
+  seqName<-paste(gLocus$chr,gLocus$start,gLocus$end,sep="_")
+  try(if(!file.exists(fasta)) stop("input fasta file not found."))
+  conn<-file(fasta,open="r")#open r is required to save your time
+  startFlag<-F
+  endFlag<-F
+  line<-""
+  headerL<-paste("^>",gLocus$chr," ",sep="")
+  readMulti<-10
+  seqV<-c()
+  while (!endFlag){
+    line<-readLines(conn,n=readMulti)#compare n=1, n=10 and n=100
+    if(length(line)==0){#EOF
+      seqV<-c(seqV,line)
+      endFlag<-T
+    }else{
+      if(startFlag){#next fasta
+        index<-grep("^>", line)
+        if(length(index)>0){
+          seqV<-c(seqV,line[1:index[1]])
+          endFlag<-T
+        }else{
+          seqV<-c(seqV,line)
+        }
+      }else{
+        index<-grep(headerL, line)
+        if(length(index)>0){
+          startFlag<-T
+          if(index[1]<readMulti){
+            seqV<-c(seqV,line[index[1]+1]:readMulti)
+          }
+        }
+      }
+    }
+  }
+  close(conn)
+  seq<-substr(x=paste(seqV,collapse = ""),start = gLocus$start,stop = gLocus$end)
+  fasta=list(name=seqName,seq=seq)
+  return(fasta)
+}
+
+
+
 #' findGeneLocusFromToxoDBGFF
 #'
 #' input toxoDBID return genome locus position (chr, start, end, complement)

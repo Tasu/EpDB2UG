@@ -14,5 +14,6 @@ loadAllOnMemotry(geneId, gff)
 \description{
 input toxoDBID return genome locus position (chr, start, end, complement)
 around 25MB will be used for 19MB ToxoDB-28_TgondiiME49.gff
+for test
 }
 

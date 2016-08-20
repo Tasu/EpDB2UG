@@ -30,7 +30,7 @@ sapply(files,inputGFF3OutputGenbank)
 
 #####################################################################
 ####sandbox: make genbank from Gene Of Interest ID.
-####require whole genome fasta and whole genome GFF
+####require whole genome fasta and whole genome GFF (any but in the same version)
 #####################################################################
 library(EpDB2UG)
 #init
@@ -54,7 +54,9 @@ surroundingLocus
 genbank<-list(seq=c(),featureList=c())
 #get seq and feature in locus of interest
 genbank<-list(
-  seq=subFasta(gLocus=surroundingLocus,fasta=fasta),
+  seq=subFasta(gLocus=surroundingLocus,fasta=fasta)
+  ,
+  #TODO SUSPEND HERE
   featureList=subGFF(gLocus=surroundingLocus,gff=gff)
 )
 
@@ -68,3 +70,11 @@ cat(paste("Please use",outGENBANK," for UGENE."))
 saveRDS(gLocus,file = "~/Documents/OneDrive/ToxoDB2Ugene//EPDB2UG/tests/testthat/testdata/expect/TGME49_286470-gLocus.rds")
 remove(gLocus)
 gLocus<-readRDS("~/Documents/OneDrive/ToxoDB2Ugene//EPDB2UG/tests/testthat/testdata/expect/TGME49_286470-gLocus.rds")
+
+
+
+
+############################
+#shiny UI test
+############################
+

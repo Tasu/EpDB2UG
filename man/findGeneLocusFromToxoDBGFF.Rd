@@ -13,6 +13,6 @@ findGeneLocusFromToxoDBGFF(geneId, gff)
 }
 \description{
 input toxoDBID return genome locus position (chr, start, end, complement)
-~1MB memory for 19MB ToxoDB-28_TgondiiME49.gff 3.10 sec
+~1MB memory for 19MB ToxoDB-28_TgondiiME49.gff
 }
 
